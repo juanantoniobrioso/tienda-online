@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div>Mi Tienda</div>
+        <div>
+            <a href="dashboard.html">Inicio</a>
+            <a href="categories.html">Categorías</a>
+            <a href="cart.html">Carrito</a>
+            <a href="#" onclick="App.logout()">Salir</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>🔥 Productos Destacados</h2>
+        <div id="featured-products" class="grid-products"></div>
+
+        <h2 style="margin-top:40px;">👁️ Vistos Recientemente</h2>
+        <div id="recent-products" class="grid-products"></div>
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
