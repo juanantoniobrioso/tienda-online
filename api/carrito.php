@@ -24,7 +24,7 @@ $precioManipulado = false;
 foreach ($carritoCliente as $itemCliente) {
     foreach ($productosOriginales as $prodOriginal) {
         if ($itemCliente['id'] == $prodOriginal['id']) {
-            // VERIFICACIÓN CRÍTICA DE PRECIO
+            // Verificacion de precio
             if ($itemCliente['precio'] != $prodOriginal['precio']) {
                 $precioManipulado = true;
             }

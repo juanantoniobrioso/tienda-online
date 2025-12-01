@@ -1,4 +1,4 @@
-const API_URL = 'api/';
+const API_URL = '/tienda-online/api/';
 
 const App = {
     // --- GESTIÓN DE ESTADO Y SEGURIDAD ---
@@ -32,7 +32,7 @@ const App = {
         
         if (data.success) {
             localStorage.setItem('token', data.token);
-            // Guardamos TODA la tienda en local
+            // Guardamos toda la tienda en local
             localStorage.setItem('storeData', JSON.stringify(data.data));
             window.location.href = 'dashboard.html';
         } else {
@@ -181,7 +181,7 @@ const App = {
                     <h3>${p.nombre}</h3>
                     <p>$${p.precio}</p>
                     <a href="product.html?id=${p.id}" class="btn" style="text-align:center; text-decoration:none;">Ver Detalle</a>
-                    <button class="btn" onclick="App.addToCart(${p.id})">Añadir 🛒</button>
+                    <button class="btn" onclick="App.addToCart(${p.id})">Añadir </button>
                 </div>
             </div>
         `;

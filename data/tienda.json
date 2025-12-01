@@ -1,0 +1,84 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Tecnología",
+            "descripcion": "Gadgets y dispositivos"
+        },
+        {
+            "id": 2,
+            "nombre": "Ropa",
+            "descripcion": "Moda para todos"
+        },
+        {
+            "id": 3,
+            "nombre": "Hogar",
+            "descripcion": "Muebles y decoración"
+        }
+    ],
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Laptop Gamer",
+            "precio": 1200,
+            "destacado": true,
+            "id_categoria": 1,
+            "img": "laptop.jpg",
+            "descripcion": "Potencia bruta para tus juegos con tarjeta gráfica de última generación."
+        },
+        {
+            "id": 2,
+            "nombre": "Smartphone X",
+            "precio": 800,
+            "destacado": true,
+            "id_categoria": 1,
+            "img": "phone.jpg",
+            "descripcion": "La mejor cámara del mercado y batería de larga duración."
+        },
+        {
+            "id": 3,
+            "nombre": "Auriculares Pro",
+            "precio": 150,
+            "destacado": false,
+            "id_categoria": 1,
+            "img": "headphones.jpg",
+            "descripcion": "Cancelación de ruido activa y sonido de alta fidelidad."
+        },
+        {
+            "id": 4,
+            "nombre": "Camiseta Dev",
+            "precio": 25,
+            "destacado": false,
+            "id_categoria": 2,
+            "img": "shirt.jpg",
+            "descripcion": "100% Algodón, ideal para programar cómodo."
+        },
+        {
+            "id": 5,
+            "nombre": "Zapatillas Run",
+            "precio": 60,
+            "destacado": true,
+            "id_categoria": 2,
+            "img": "shoes.jpg",
+            "descripcion": "Suela ergonómica para correr largas distancias."
+        },
+        {
+            "id": 6,
+            "nombre": "Sofá Moderno",
+            "precio": 450,
+            "destacado": false,
+            "id_categoria": 3,
+            "img": "sofa.jpg",
+            "descripcion": "Diseño minimalista, 3 plazas, tela antimanchas."
+        },
+        {
+            "id": 7,
+            "nombre": "Lámpara de Pie",
+            "precio": 45,
+            "destacado": false,
+            "id_categoria": 3,
+            "img": "lamp.jpg",
+            "descripcion": "Iluminación cálida para tu salón."
+        }
+    ]
+}

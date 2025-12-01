@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Carrito</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <nav>
         <div>Mi Tienda</div>
         <div>
             <a href="dashboard.html">Seguir Comprando</a>
-            <a href="#" onclick="App.logout()">Salir</a>
+            <a href="login.html" onclick="App.logout()">Salir</a>
         </div>
     </nav>
     <div class="container">
         <h2>Tu Carrito</h2>
-        <div id="cart-items" style="background:#1e293b; padding:20px; border-radius:10px;"></div>
-        <h3 style="text-align:right;">Total: $<span id="total-price">0</span></h3>
+        <div id="cart-items"></div>
+        <h3 style="text-align:right;">Total: <span id="total-price">0</span>€</h3><!--luego pongo el style en css-->
         <button class="btn" onclick="App.checkout()">Finalizar Compra</button>
     </div>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
