@@ -124,7 +124,7 @@ const App = {
                     <img src="assets/img/${product.img}" style="max-width:300px; border-radius:10px;">
                     <div>
                         <h1>${product.nombre}</h1>
-                        <h2>$${product.precio}</h2>
+                        <h2>${product.precio}€</h2>
                         <p>${product.descripcion}</p>
                         <button class="btn" onclick="App.addToCart(${product.id})">Añadir al Carrito</button>
                     </div>
@@ -176,12 +176,15 @@ const App = {
     createCard: (p) => {
         return `
             <div class="card">
-                <div style="height:150px; background:#334155; display:flex; align-items:center; justify-content:center; color:#aaa;">Imagen</div>
+                <div style="height:180px; overflow:hidden;">
+                    <img src="${p.img}" alt="${p.nombre}" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                
                 <div class="card-body">
                     <h3>${p.nombre}</h3>
                     <p>${p.precio}€</p>
                     <a href="product.html?id=${p.id}" class="btn" style="text-align:center; text-decoration:none;">Ver Detalle</a>
-                    <button class="btn" onclick="App.addToCart(${p.id})">Añadir </button>
+                    <button class="btn" onclick="App.addToCart(${p.id})">Añadir</button>
                 </div>
             </div>
         `;

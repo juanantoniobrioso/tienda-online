@@ -36,6 +36,6 @@ foreach ($carritoCliente as $itemCliente) {
 if ($precioManipulado) {
     echo json_encode(["success" => false, "message" => "ALERTA: Precios manipulados detectados."]);
 } else {
-    echo json_encode(["success" => true, "message" => "Compra realizada con éxito. Total: $" . $totalCalculado]);
+    echo json_encode(["success" => true, "message" => "Compra realizada con éxito. Total: " . $totalCalculado . "€"]);
 }
 ?>
