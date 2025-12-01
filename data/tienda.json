@@ -23,7 +23,7 @@
             "precio": 1200,
             "destacado": true,
             "id_categoria": 1,
-            "img": "laptop.jpg",
+            "img": "../../assets/img/laptop.jpg",
             "descripcion": "Potencia bruta para tus juegos con tarjeta gráfica de última generación."
         },
         {
@@ -32,7 +32,7 @@
             "precio": 800,
             "destacado": true,
             "id_categoria": 1,
-            "img": "phone.jpg",
+            "img": "movil.jpg",
             "descripcion": "La mejor cámara del mercado y batería de larga duración."
         },
         {
@@ -41,17 +41,17 @@
             "precio": 150,
             "destacado": false,
             "id_categoria": 1,
-            "img": "headphones.jpg",
+            "img": "auriculares.jpg",
             "descripcion": "Cancelación de ruido activa y sonido de alta fidelidad."
         },
         {
             "id": 4,
-            "nombre": "Camiseta Dev",
+            "nombre": "Camiseta Azul",
             "precio": 25,
             "destacado": false,
             "id_categoria": 2,
-            "img": "shirt.jpg",
-            "descripcion": "100% Algodón, ideal para programar cómodo."
+            "img": "camiseta.jpg",
+            "descripcion": "100% Algodón, es azul."
         },
         {
             "id": 5,
@@ -59,7 +59,7 @@
             "precio": 60,
             "destacado": true,
             "id_categoria": 2,
-            "img": "shoes.jpg",
+            "img": "zapato.jpg",
             "descripcion": "Suela ergonómica para correr largas distancias."
         },
         {
@@ -77,7 +77,7 @@
             "precio": 45,
             "destacado": false,
             "id_categoria": 3,
-            "img": "lamp.jpg",
+            "img": "lampara.jpg",
             "descripcion": "Iluminación cálida para tu salón."
         }
     ]

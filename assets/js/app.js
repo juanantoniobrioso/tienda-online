@@ -148,7 +148,7 @@ const App = {
             return `
                 <div style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #333;">
                     <span>${item.nombre} (x${item.cantidad})</span>
-                    <span>$${item.precio * item.cantidad}</span>
+                    <span>${item.precio * item.cantidad}€</span>
                 </div>`;
         }).join('');
         
@@ -179,7 +179,7 @@ const App = {
                 <div style="height:150px; background:#334155; display:flex; align-items:center; justify-content:center; color:#aaa;">Imagen</div>
                 <div class="card-body">
                     <h3>${p.nombre}</h3>
-                    <p>$${p.precio}</p>
+                    <p>${p.precio}€</p>
                     <a href="product.html?id=${p.id}" class="btn" style="text-align:center; text-decoration:none;">Ver Detalle</a>
                     <button class="btn" onclick="App.addToCart(${p.id})">Añadir </button>
                 </div>
