@@ -1,7 +1,7 @@
 const API_URL = '/tienda-online/api/';
 
 const App = {
-    // --- GESTIÓN DE ESTADO Y SEGURIDAD ---
+
     init: () => {
         const path = window.location.pathname;
         const page = path.split("/").pop();
@@ -11,7 +11,7 @@ const App = {
             App.updateNav();
         }
         
-        // Router simple basado en la página actual
+        // Router 
         if (page === 'dashboard.html') App.renderDashboard();
         if (page === 'categories.html') App.renderCategories();
         if (page === 'product.html') App.renderProductDetail();
@@ -45,7 +45,7 @@ const App = {
         window.location.href = 'login.html';
     },
 
-    // --- MANEJO DE DATOS LOCALES ---
+    // Los datos locales
     getStore: () => JSON.parse(localStorage.getItem('storeData')),
     
     addToCart: (productoId) => {
@@ -64,15 +64,43 @@ const App = {
     },
 
     saveRecent: (prod) => {
+        // Para que se muestre la lista
         let recent = JSON.parse(localStorage.getItem('productos_vistos')) || [];
-        // Evitar duplicados recientes
+        
+        // Evitar duplicado
         recent = recent.filter(p => p.id !== prod.id);
-        recent.unshift(prod); // Añadir al principio
-        if (recent.length > 5) recent.pop(); // Mantener solo 5
+        
+        // Añadirlo siempre al principio (por ejemplo si ves primero un movil y luego
+        // un portatil, sale primero el portatil porque es lo último pero si vuelves a ver
+        // el movil, vuelve a salir el movil el primero.)
+        recent.unshift(prod);
+        
+        // Mantenemos solo los últimos 5 
+        if (recent.length > 5) recent.pop();
+        
+        // Guardar en el navegador
         localStorage.setItem('productos_vistos', JSON.stringify(recent));
+
+        // Enviar datos a productos_vistos.php
+        const historialIds = recent.map(p => p.id);
+        const token = localStorage.getItem('token');
+
+        if(token) {
+            fetch(API_URL + 'productos_vistos.php', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ historial: historialIds })
+            })
+            .then(res => res.json())
+            .then(data => console.log("Sync Servidor:", data.message))
+            .catch(err => console.error("Error Sync:", err));
+        }
     },
 
-    // --- RENDERIZADO ---
+    // Renderizar
     renderDashboard: () => {
         const store = App.getStore();
         const container = document.getElementById('featured-products');
@@ -115,21 +143,37 @@ const App = {
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         const store = App.getStore();
+        
         const product = store.productos.find(p => p.id == id);
 
         if(product) {
-            App.saveRecent(product); // Guardar en historial
-            document.getElementById('detail').innerHTML = `
-                <div style="display:flex; gap:20px; align-items:center;">
-                    <img src="assets/img/${product.img}" style="max-width:300px; border-radius:10px;">
-                    <div>
-                        <h1>${product.nombre}</h1>
-                        <h2>${product.precio}€</h2>
-                        <p>${product.descripcion}</p>
-                        <button class="btn" onclick="App.addToCart(${product.id})">Añadir al Carrito</button>
+            App.saveRecent(product); 
+            
+            const container = document.getElementById('detail');
+            
+            container.innerHTML = `
+                <div class="detail-container">
+                    
+                    <div class="detail-img-col">
+                        <img src="${product.img}" alt="${product.nombre}">
+                    </div>
+
+                    <div class="detail-info-col">
+                        <h1 class="detail-title">${product.nombre}</h1>
+                        <h2 class="detail-price">${product.precio} €</h2>
+                        <p class="detail-description">
+                            ${product.descripcion}
+                        </p>
+                        
+                        <button class="btn btn-add-cart" onclick="App.addToCart(${product.id})">
+                            Añadir al Carrito
+                        </button> 
+                        <br>
                     </div>
                 </div>
             `;
+        } else {
+            document.getElementById('detail').innerHTML = "<h2>Producto no encontrado</h2>";
         }
     },
 
@@ -176,14 +220,14 @@ const App = {
     createCard: (p) => {
         return `
             <div class="card">
-                <div style="height:180px; overflow:hidden;">
-                    <img src="${p.img}" alt="${p.nombre}" style="width:100%; height:100%; object-fit:cover;">
+                <div>
+                    <img src="${p.img}" alt="${p.nombre}">
                 </div>
                 
                 <div class="card-body">
                     <h3>${p.nombre}</h3>
                     <p>${p.precio}€</p>
-                    <a href="product.html?id=${p.id}" class="btn" style="text-align:center; text-decoration:none;">Ver Detalle</a>
+                    <a href="product.html?id=${p.id}" class="btn">Ver Detalle</a>
                     <button class="btn" onclick="App.addToCart(${p.id})">Añadir</button>
                 </div>
             </div>
@@ -192,9 +236,6 @@ const App = {
 
     updateNav: () => {
         const user = localStorage.getItem('token');
-        if(user) {
-           // Lógica para mostrar usuario o botón logout
-        }
     }
 };
 

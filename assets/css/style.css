@@ -14,8 +14,16 @@ body {
 }
 
 /* Layouts */
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-.grid-products { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
+.grid-products { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
 
 /* Header */
 nav {
@@ -23,32 +31,167 @@ nav {
     padding: 1rem 2rem; background: var(--glass); backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
-nav a:hover { color: var(--primary); }
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    margin-left: 20px; 
+    font-weight: bold; 
+    transition: 0.3s; 
+}
+nav a:hover { 
+    color: var(--primary); 
+}
 
-/* Cards */
+/* Tarjetass */
 .card {
     background: #1e293b; border-radius: 12px; overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255,255,255,0.05);
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
-.card img { width: 100%; height: 180px; object-fit: cover; }
-.card-body { padding: 15px; }
-.btn {
-    display: block; width: 100%; padding: 10px; border: none; border-radius: 6px;
-    background: var(--primary); color: white; cursor: pointer; font-weight: bold;
-    margin-top: 10px; transition: 0.2s;
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); 
 }
-.btn:hover { background: #4f46e5; }
-.btn-danger { background: #ef4444; }
+.card img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+}
 
-/* Form Login */
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.card-body h3, .card-body p {
+    margin: 0; 
+}
+
+.btn {
+    display: block;
+    width: 100%;      
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none; 
+    text-align: center;    
+    box-sizing: border-box; 
+}
+
+.btn:hover {
+    background: #4f46e5;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+
+.btn-danger { 
+    background: #ef4444; 
+}
+/* Dashboard */
+#vistosRecientes{
+    margin-top:40px;
+}
+
+/* Categorias */
+#cat-list{
+    margin-bottom: 20px;
+}
+#hr-cat-list{
+    border-color:#333;
+}
+/* Carrito */
+#cart-items{
+    background:#1e293b; 
+    padding:20px; 
+    border-radius:10px;
+}
+
+#cart-items h3{
+    text-align:right;
+}
+/* Formulario del login */
 .login-box {
-    max-width: 400px; margin: 100px auto; padding: 40px;
-    background: #1e293b; border-radius: 15px; text-align: center;
+    max-width: 400px; 
+    margin: 100px auto; 
+    padding: 40px;
+    background: #1e293b; 
+    border-radius: 15px; 
+    text-align: center;
 }
 input {
-    width: 90%; padding: 12px; margin: 10px 0; border-radius: 6px; border: none;
-    background: #334155; color: white;
+    width: 90%; 
+    padding: 12px; 
+    margin: 10px 0; 
+    border-radius: 6px; 
+    border: none;
+    background: #334155; 
+    color: white;
+}
+
+/* Estilos de ficha de producto*/
+
+.detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.detail-img-col, .detail-info-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.detail-img-col img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.detail-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.detail-price {
+    color: #818cf8;
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.detail-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.btn-add-cart {
+    max-width: 200px;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+.link-back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link-back:hover {
+    color: white;
 }
