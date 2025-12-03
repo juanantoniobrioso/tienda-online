@@ -26,3 +26,5 @@ contraseña: abc
 ## Errores
 
 He utilizado enlaces para las imágenes en vez de rutas. Si por lo que sea los dueños de esos enlaces deciden tirar su página o su imagen, aquí ya no se verían. Lo ideal es usar rutas de archivo, pero no he podido conseguir que funcionen del todo bien.
+
+Tampoco he sabido implementar el sistema para evitar la manipulación de precios.
